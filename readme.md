@@ -6,13 +6,15 @@
 
   现在，CryptoPunks已经取得了传奇性的地位，进入了主流艺术界，并在佳士得和苏富比等主要艺术机构的拍卖会上成为了头条。CryptoPunks本质上是NFT的劳力士。即使是价格最低的Punks也能卖到数万美元。最稀有的，比如僵尸、猿人和外星人的价格可以高达数百万美元。
 
-  本文将对CryptoPunks的结构与内容进行深入解析、修改与部署。请在以下CSDN论坛中查看本文  https://blog.csdn.net/qq_41906214/article/details/126085979?csdn_share_tail=%7B%22type%22%3A%22blog%22%2C%22rType%22%3A%22article%22%2C%22rId%22%3A%22126085979%22%2C%22source%22%3A%22qq_41906214%22%7D&ctrtid=qhJEX
+  本文将对CryptoPunks的结构与内容进行深入解析、修改与部署。请在以下CSDN论坛中查看本文  
+  
+  [https://blog.csdn.net/qq_41906214/article/details/126085979?csdn_share_tail=%7B%22type%22%3A%22blog%22%2C%22rType%22%3A%22article%22%2C%22rId%22%3A%22126085979%22%2C%22source%22%3A%22qq_41906214%22%7D&ctrtid=qhJEX]
 
 
 ### 内容
 
-* **代码解析** 文章对CryptoPunks主要合约CryptoPunksMarket.sol进行了详细解析。
-* **设计流程** 文章阐明了CryptoPunk主要设计流程。
-* **部署与实现** 本文对CryptoPunk图像制作进行了解析与实现，并部署到本地测试环境中。
+* **代码解析**   文章对CryptoPunks主要合约CryptoPunksMarket.sol进行了详细解析。
+* **设计流程**   文章阐明了CryptoPunk主要设计流程。
+* **部署与实现**   本文对CryptoPunk图像制作进行了解析与实现，并部署到本地测试环境中。
 ![image](/9.png)
 
