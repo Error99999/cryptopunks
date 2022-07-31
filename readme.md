@@ -1,35 +1,17 @@
-![CryptoPunks](/punk-variety.png)
+![CryptoPunks](/2.png)
 
-## CryptoPunks: Collectible Characters on the Ethereum Blockchain
+## CryptoPunks解析与部署
 
-CryptoPunks are 10,000 unique collectible characters with proof of ownership stored on the Ethereum blockchain. No two are exactly alike, and each one of them can be officially owned by a single person as managed and verified by a contract running on the Ethereum blockchain. You can see which punks are still available along with some more general information over at https://www.larvalabs.com/cryptopunks
+ CryptoPunks是NFT头像的老炮代表。它为其他所有跟随其脚步的项目开创了先例。CryptoPunks由Larva Labs在2017年6月发布，是以太坊区块链上第一批NFT项目之一。当时，CryptoPunks共有1万个独特生成的24×24像素的头像，任何拥有以太坊钱包的人都可以免费领取。
 
-This repo contains the Ethereum contract used to manage the Punks, a verifiable image of all the punks, and a unit test to verify the contract's functionality.
+  现在，CryptoPunks已经取得了传奇性的地位，进入了主流艺术界，并在佳士得和苏富比等主要艺术机构的拍卖会上成为了头条。CryptoPunks本质上是NFT的劳力士。即使是价格最低的Punks也能卖到数万美元。最稀有的，比如僵尸、猿人和外星人的价格可以高达数百万美元。
 
-### Some Questions
+  本文将对CryptoPunks的结构与内容进行深入解析、修改与部署。 https://blog.csdn.net/qq_41906214/article/details/126085979?csdn_share_tail=%7B%22type%22%3A%22blog%22%2C%22rType%22%3A%22article%22%2C%22rId%22%3A%22126085979%22%2C%22source%22%3A%22qq_41906214%22%7D&ctrtid=qhJEX 在此查看内容介绍。
 
-* **How much do the punks cost?** When we first released the project, you could claim a punk by simply paying the transaction fee of around 11 cents. Now, you have to buy a punk from someone else and need to pay the market rate, which at the moment is around 0.3 ETH (~$80 USD). See http://www.larvalabs.com/cryptopunks for the current average price.
-* **How much is a punk worth?** Like many things, they're worth whatever someone will pay. People have spent 10 ETH (around $3,000) on the the rarest types.
-* **How were the punk images created?** With a generator that was programmed to generate punks with a range of features and rarity. For example, there are only 88 Zombie Punks, 24 Apes, 9 Aliens and exactly [1 Alien Punk smoking a pipe](https://www.larvalabs.com/cryptopunks/details/7804).
 
-### How to Use the CryptoPunks Contract
+### 内容
 
-The easiest way is to use [MyEtherWallet](https://www.myetherwallet.com/#contracts) which has added CryptoPunks to their contract dropdown. If you prefer to use an Ethereum wallet on your computer, the main CryptoPunks contract can be found at address **0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB**. Watch this contract in your Ethereum wallet using that address and [this ABI file](/compiled/CryptoPunksMarket.abi).
+* **代码解析** 文章对CryptoPunks主要合约CryptoPunksMarket.sol进行了详细解析。
+* **设计流程** 文章阐明了CryptoPunk主要设计流程。
+* **部署与实现** 本文对CryptoPunk图像制作进行了解析与实现，并部署到本地测试环境中。[image](/9.png).
 
-Once you are watching the contract you can execute the following functions to transact punks:
-
-* ```getPunk(uint index)``` to claim ownership of a punk (this is no longer useful as all 10,000 punks have been claimed).
-* ```transferPunk(address to, uint index)``` transfer ownership of a punk to someone without requiring any payment.
-* ```offerPunkForSale(uint punkIndex, uint minSalePriceInWei)``` offer one of your punks for sale to anyone willing to pay the minimum price specified (in Wei).
-* ```offerPunkForSaleToAddress(uint punkIndex, uint minSalePriceInWei, address toAddress)``` offer one of your punks for some minumum price, but only to the address specified. Use this to sell a punk to a specific person.
-* ```enterBidForPunk(uint punkIndex)``` enters a bid for the punkIndex specified. Send in the amount of your bid in the value field and we will hold that ether in escrow.
-* ```acceptBidForPunk(uint punkIndex, uint minPrice)``` to accept a pending bid for the specified punk. You can specify a minPrice in Wei to protect yourself from someone switching the bid for a lower bid.
-* ```withdrawBidForPunk(uint punkIndex)``` will withdraw a bid for the specified punk and send you the ether from the bid.
-* ```buyPunk(uint punkIndex)``` buy punk at the specified index. That punk needs to be previously offered for sale, and you need to have sent at least the amount of Ether specified as the sale price for the punk.
-* ```withdraw()``` claim all the Ether people have previously sent to buy your punks.
-
-### Verifying the Punks are 100% Authentic and Legit CryptoPunks™
-
-![All the CryptoPunks](/punks.png)
-
-This is the official and genuine image of all of the CryptoPunks that have been created. To allow verification that the punks being managed by the CryptoPunks Ethereum contract are the same as what you see in the image, we have embedded a SHA256 hash of the image file into the contract. You can generate this hash for the punks image file via a command line similar to ```openssl sha -sha256 punks.png``` and compare that to the embedded hash in the contract ```ac39af4793119ee46bbff351d8cb6b5f23da60222126add4268e261199a2921b```.
